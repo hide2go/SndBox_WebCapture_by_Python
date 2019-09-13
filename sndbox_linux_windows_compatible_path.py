@@ -1,4 +1,5 @@
 from pathlib import Path
+import numpy as np
 import os
 abspath2file = os.path.abspath(__file__)
 print("abspath2file : ", abspath2file)
@@ -35,7 +36,33 @@ else:
 
 pathfile=os.path.dirname(dirpath)
 basename=os.path.basename(dirpath)
-
 print("pathfile : ", pathfile)
 print("basename : ", basename)
 print(os.path.join(pathfile,"output","log.txt"))
+print(abspath2file_path.parent / 'newDirectory')
+Path(abspath2file_path.parent / 'newDirectory').mkdir(parents=True, exist_ok=True)
+
+print('-----------------------------------------------------------------------------')
+
+#**の場合、**はディレクトリにのみマッチする。ファイルにもマッチさせたい場合は**/*とする。
+p = Path(abspath2file_path.parent).glob('**/*.py')
+
+array_test = np.array([])
+for var_file_name in p:
+    print(var_file_name)
+    new_array_test = np.append(array_test,var_file_name,1)
+print(new_array_test)
+
+print('-----------------------------------------------------------------------------')
+#**の場合、**はディレクトリにのみマッチする。ファイルにもマッチさせたい場合は**/*とする。
+p = Path(abspath2file_path.parent).glob('**/*.py')
+arr_files = [x for x in p if x.is_file()]
+print(arr_files)
+print(*arr_files, sep ="\n")
+
+# ListからArrayに変換
+myarray = np.asarray(arr_files)
+
+print(myarray)
+
+

@@ -2,6 +2,11 @@ from pathlib import Path
 import os
 abspath2file = os.path.abspath(__file__)
 print("abspath2file : ", abspath2file)
+abspath2file_path = Path(abspath2file)
+print('abspath2file_path : ',abspath2file_path)
+print("abspath2file_path.name : ", abspath2file_path.name)
+print("abspath2file_path.suffix : ", abspath2file_path.suffix)
+print('abspath2file_path.parent : ',abspath2file_path.parent)
 
 abspath2dir = os.path.dirname(os.path.abspath(__file__))
 print("abspath2dir : ", abspath2dir)

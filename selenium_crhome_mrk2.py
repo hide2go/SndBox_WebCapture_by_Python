@@ -5,6 +5,7 @@ import chromedriver_binary
 #from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
+from time import sleep
 
 v_stock_code="8604"
 s_suffix_chart_type = ''
@@ -68,6 +69,7 @@ if s_mode == execute_mode.eod:
     size = element.size
     print('s_file_name = ' + s_file_name)
 
+    sleep(3)
     driver.save_screenshot(s_file_name);
 
     x = location['x'];
@@ -84,6 +86,7 @@ if s_mode == execute_mode.eod:
     size = element.size
     print('s_file_name = ' + s_file_name)
 
+    sleep(3)
     driver.save_screenshot(s_file_name);
 
     x = location['x'];
@@ -100,6 +103,7 @@ if s_mode == execute_mode.eod:
     size = element.size
     print('s_file_name = ' + s_file_name)
 
+    sleep(3)
     driver.save_screenshot(s_file_name);
 
     x = location['x'];
@@ -116,6 +120,7 @@ elif s_mode == execute_mode.zaraba:
     size = element.size
     print('s_file_name = ' + s_file_name)
 
+    sleep(3)
     driver.save_screenshot(s_file_name);
 
     x = location['x'];
@@ -126,7 +131,6 @@ elif s_mode == execute_mode.zaraba:
     im = Image.open(s_file_name);
     im = im.crop((int(x), int(y), int(width), int(height)))
     im.save(s_file_name)
-
 
 
 # ブラウザーを終了
